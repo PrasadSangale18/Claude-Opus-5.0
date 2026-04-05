@@ -1,1 +1,0 @@
-# Claude-Opus-5.0
