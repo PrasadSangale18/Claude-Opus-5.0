@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Opus 5.0 — The Pinnacle of AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#080808;
+  --black2:#0e0e10;
+  --black3:#161618;
+  --black4:#1e1e21;
+  --gold:#c8a96e;
+  --gold2:#e2c48a;
+  --gold3:#a08548;
+  --off-white:#f0ece4;
+  --muted:#8a8580;
+  --muted2:#555250;
+  --border:#2a2a2e;
+  --border2:#333338;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--off-white);
+  font-family:var(--sans);
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--black2)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+::-webkit-scrollbar-thumb:hover{background:var(--muted2)}
+
+/* GRID BACKGROUND */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:60px 60px;
+  opacity:0.18;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  padding:0 48px;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(200,169,110,0.08);
+  background:rgba(8,8,8,0.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.nav-logo{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:400;
+  color:var(--gold);
+  letter-spacing:0.04em;
+  text-decoration:none;
+}
+.nav-logo span{color:var(--off-white);font-style:italic}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{
+  font-size:13px;
+  font-weight:400;
+  color:var(--muted);
+  text-decoration:none;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{
+  font-size:13px;
+  font-weight:400;
+  color:var(--black);
+  background:var(--gold);
+  border:none;
+  padding:8px 20px;
+  border-radius:2px;
+  cursor:pointer;
+  font-family:var(--sans);
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--gold2)}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  position:relative;
+  z-index:1;
+  padding:120px 24px 80px;
+}
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+  border:1px solid rgba(200,169,110,0.3);
+  padding:6px 16px;
+  border-radius:999px;
+  margin-bottom:40px;
+  animation:fadeup 0.8s ease both;
+}
+.hero-badge::before{
+  content:'';
+  width:6px;height:6px;
+  border-radius:50%;
+  background:var(--gold);
+  animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(56px,8vw,112px);
+  font-weight:300;
+  line-height:1.0;
+  letter-spacing:-0.01em;
+  color:var(--off-white);
+  animation:fadeup 0.8s 0.1s ease both;
+  margin-bottom:8px;
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--gold);
+}
+.hero-sub{
+  font-family:var(--serif);
+  font-size:clamp(20px,2.5vw,28px);
+  font-weight:300;
+  font-style:italic;
+  color:var(--muted);
+  margin-bottom:48px;
+  animation:fadeup 0.8s 0.2s ease both;
+  letter-spacing:0.02em;
+}
+.hero-desc{
+  max-width:560px;
+  font-size:15px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:56px;
+  animation:fadeup 0.8s 0.3s ease both;
+}
+.hero-actions{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  animation:fadeup 0.8s 0.4s ease both;
+}
+.btn-primary{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:400;
+  color:var(--black);
+  background:var(--gold);
+  border:none;
+  padding:14px 36px;
+  border-radius:2px;
+  cursor:pointer;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:background 0.2s,transform 0.1s;
+  display:inline-block;
+}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{
+  font-family:var(--sans);
+  font-size:14px;
+  font-weight:400;
+  color:var(--muted);
+  background:transparent;
+  border:1px solid var(--border2);
+  padding:14px 36px;
+  border-radius:2px;
+  cursor:pointer;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  text-decoration:none;
+  transition:color 0.2s,border-color 0.2s;
+  display:inline-block;
+}
+.btn-ghost:hover{color:var(--off-white);border-color:var(--muted2)}
+.hero-scroll{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  color:var(--muted2);
+  font-size:11px;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  animation:fadeup 1s 0.8s ease both;
+}
+.scroll-line{
+  width:1px;height:40px;
+  background:linear-gradient(to bottom,var(--gold3),transparent);
+  animation:scrollpulse 2s infinite;
+}
+@keyframes scrollpulse{0%,100%{opacity:0.4}50%{opacity:1}}
+
+/* STATS */
+.stats{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  background:var(--black2);
+  padding:48px 0;
+}
+.stats-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+.stat-item{
+  text-align:center;
+  padding:24px 16px;
+  border-right:1px solid var(--border);
+}
+.stat-item:last-child{border-right:none}
+.stat-num{
+  font-family:var(--serif);
+  font-size:48px;
+  font-weight:300;
+  color:var(--gold);
+  line-height:1;
+  margin-bottom:8px;
+}
+.stat-label{
+  font-size:12px;
+  font-weight:400;
+  color:var(--muted);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+/* SECTION COMMONS */
+section{position:relative;z-index:1}
+.section-label{
+  font-size:11px;
+  font-weight:400;
+  color:var(--gold3);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(36px,4vw,56px);
+  font-weight:300;
+  line-height:1.1;
+  color:var(--off-white);
+  margin-bottom:16px;
+}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-desc{
+  font-size:15px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.8;
+  max-width:560px;
+}
+
+/* CHAT SECTION */
+.chat-section{
+  padding:100px 48px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.chat-layout{
+  display:grid;
+  grid-template-columns:1fr 1.5fr;
+  gap:64px;
+  align-items:start;
+}
+.chat-info{padding-top:40px}
+.chat-pills{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-top:32px;
+}
+.pill{
+  font-size:12px;
+  font-weight:400;
+  color:var(--muted);
+  border:1px solid var(--border2);
+  padding:5px 14px;
+  border-radius:999px;
+  letter-spacing:0.04em;
+  background:var(--black3);
+}
+
+/* CHAT UI */
+.chat-container{
+  border:1px solid var(--border2);
+  border-radius:8px;
+  overflow:hidden;
+  background:var(--black2);
+  display:flex;
+  flex-direction:column;
+  height:620px;
+}
+.chat-header{
+  padding:14px 20px;
+  border-bottom:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:var(--black3);
+  flex-shrink:0;
+}
+.chat-header-left{display:flex;align-items:center;gap:12px}
+.chat-status-dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--gold);
+  animation:blink 2s infinite;
+}
+.chat-model-name{
+  font-size:13px;
+  font-weight:500;
+  color:var(--off-white);
+  letter-spacing:0.02em;
+}
+.chat-model-sub{
+  font-size:11px;
+  color:var(--muted2);
+  font-family:var(--mono);
+}
+.chat-clear{
+  font-size:11px;
+  color:var(--muted2);
+  background:none;
+  border:1px solid var(--border);
+  color:var(--muted);
+  padding:4px 12px;
+  border-radius:2px;
+  cursor:pointer;
+  font-family:var(--sans);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  transition:color 0.2s,border-color 0.2s;
+}
+.chat-clear:hover{color:var(--off-white);border-color:var(--muted2)}
+#messages{
+  flex:1;
+  overflow-y:auto;
+  padding:24px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:24px;
+}
+#messages::-webkit-scrollbar{width:3px}
+#messages::-webkit-scrollbar-track{background:transparent}
+#messages::-webkit-scrollbar-thumb{background:var(--border2)}
+.msg{display:flex;flex-direction:column;gap:6px;animation:fadeup 0.25s ease}
+.msg.user{align-items:flex-end}
+.msg.ai{align-items:flex-start}
+.msg-sender{
+  font-size:10px;
+  font-weight:500;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--muted2);
+  padding:0 4px;
+}
+.msg.user .msg-sender{color:var(--gold3)}
+.bubble{
+  padding:12px 16px;
+  border-radius:6px;
+  max-width:86%;
+  font-size:13.5px;
+  line-height:1.7;
+  word-break:break-word;
+}
+.bubble.user{
+  background:rgba(200,169,110,0.1);
+  border:1px solid rgba(200,169,110,0.2);
+  color:var(--off-white);
+}
+.bubble.ai{
+  background:var(--black3);
+  border:1px solid var(--border);
+  color:var(--off-white);
+}
+.bubble pre{
+  background:rgba(0,0,0,0.4);
+  border:1px solid var(--border2);
+  border-radius:4px;
+  padding:12px;
+  overflow-x:auto;
+  font-size:12px;
+  margin:10px 0;
+  font-family:var(--mono);
+  color:#c8e6c9;
+}
+.bubble code{
+  font-family:var(--mono);
+  font-size:12px;
+  background:rgba(0,0,0,0.3);
+  padding:2px 6px;
+  border-radius:3px;
+  color:var(--gold2);
+}
+.bubble pre code{background:none;padding:0;color:#c8e6c9}
+.bubble strong{font-weight:500;color:var(--gold2)}
+.bubble em{font-style:italic;color:var(--muted)}
+.bubble h1,.bubble h2,.bubble h3{
+  font-family:var(--serif);
+  font-weight:400;
+  color:var(--off-white);
+  margin:10px 0 4px;
+}
+.bubble h1{font-size:18px}
+.bubble h2{font-size:16px}
+.bubble h3{font-size:14px}
+.bubble ul,.bubble ol{padding-left:18px;margin:6px 0}
+.bubble li{margin:3px 0}
+.bubble p{margin:4px 0}
+.bubble a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+.thinking-bbl{
+  background:var(--black3);
+  border:1px solid var(--border);
+  border-radius:6px;
+  padding:12px 16px;
+  display:flex;
+  gap:5px;
+  align-items:center;
+}
+.t-dot{
+  width:7px;height:7px;
+  border-radius:50%;
+  background:var(--gold3);
+  animation:throb 1.3s infinite;
+}
+.t-dot:nth-child(2){animation-delay:.16s}
+.t-dot:nth-child(3){animation-delay:.32s}
+@keyframes throb{0%,80%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+.chat-footer{
+  border-top:1px solid var(--border);
+  padding:14px 16px;
+  display:flex;
+  gap:10px;
+  align-items:flex-end;
+  background:var(--black3);
+  flex-shrink:0;
+}
+#user-input{
+  flex:1;
+  resize:none;
+  min-height:42px;
+  max-height:140px;
+  padding:10px 14px;
+  background:var(--black4);
+  border:1px solid var(--border2);
+  border-radius:4px;
+  color:var(--off-white);
+  font-family:var(--sans);
+  font-size:13.5px;
+  font-weight:300;
+  line-height:1.5;
+  outline:none;
+  transition:border-color 0.2s;
+}
+#user-input::placeholder{color:var(--muted2)}
+#user-input:focus{border-color:var(--gold3)}
+#send-btn{
+  background:var(--gold);
+  color:var(--black);
+  border:none;
+  padding:10px 20px;
+  border-radius:4px;
+  cursor:pointer;
+  font-family:var(--sans);
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.04em;
+  transition:background 0.2s;
+  flex-shrink:0;
+  height:42px;
+}
+#send-btn:hover{background:var(--gold2)}
+#send-btn:disabled{background:var(--muted2);cursor:not-allowed}
+.input-hint{
+  font-size:11px;
+  color:var(--muted2);
+  margin-top:6px;
+  padding:0 4px;
+  text-align:right;
+}
+
+/* CAPABILITIES */
+.caps-section{
+  padding:100px 48px;
+  max-width:1200px;
+  margin:0 auto;
+}
+.caps-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  margin-top:60px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+  background:var(--border);
+}
+.cap-card{
+  background:var(--black2);
+  padding:36px 32px;
+  transition:background 0.2s;
+}
+.cap-card:hover{background:var(--black3)}
+.cap-icon{
+  width:40px;height:40px;
+  border:1px solid var(--border2);
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+  font-size:18px;
+}
+.cap-title{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:400;
+  color:var(--off-white);
+  margin-bottom:10px;
+}
+.cap-desc{
+  font-size:13px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.75;
+}
+
+/* HOW IT WORKS */
+.how-section{
+  padding:100px 48px;
+  border-top:1px solid var(--border);
+  background:var(--black2);
+}
+.how-inner{max-width:1100px;margin:0 auto;}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:40px;
+  margin-top:64px;
+}
+.step{position:relative;padding-left:56px}
+.step-num{
+  position:absolute;
+  left:0;top:0;
+  font-family:var(--serif);
+  font-size:48px;
+  font-weight:300;
+  color:rgba(200,169,110,0.2);
+  line-height:1;
+}
+.step-title{
+  font-family:var(--serif);
+  font-size:22px;
+  font-weight:400;
+  color:var(--off-white);
+  margin-bottom:10px;
+}
+.step-desc{
+  font-size:13px;
+  font-weight:300;
+  color:var(--muted);
+  line-height:1.8;
+}
+
+/* QUOTE SECTION */
+.quote-section{
+  padding:100px 48px;
+  text-align:center;
+  position:relative;z-index:1;
+}
+.quote-text{
+  font-family:var(--serif);
+  font-size:clamp(24px,3vw,40px);
+  font-weight:300;
+  font-style:italic;
+  color:var(--off-white);
+  max-width:800px;
+  margin:0 auto 24px;
+  line-height:1.4;
+}
+.quote-src{
+  font-size:13px;
+  color:var(--muted2);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:48px;
+  background:var(--black2);
+  position:relative;z-index:1;
+}
+.footer-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+}
+.footer-logo{
+  font-family:var(--serif);
+  font-size:20px;
+  font-weight:400;
+  color:var(--gold);
+}
+.footer-logo span{font-style:italic;color:var(--muted)}
+.footer-copy{
+  font-size:12px;
+  color:var(--muted2);
+  letter-spacing:0.04em;
+}
+.footer-links{display:flex;gap:24px}
+.footer-links a{
+  font-size:12px;
+  color:var(--muted2);
+  text-decoration:none;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--gold)}
+
+/* ANIMATIONS */
+@keyframes fadeup{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  .chat-layout{grid-template-columns:1fr}
+  .chat-info{padding-top:0;order:2}
+  .caps-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:32px}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .stat-item:nth-child(2){border-right:none}
+  .stat-item:nth-child(3){border-top:1px solid var(--border)}
+  .chat-section,.caps-section,.how-section,.quote-section{padding:60px 24px}
+  .footer-inner{flex-direction:column;text-align:center}
+  .footer-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Claude <span>Opus 5.0</span></a>
+  <div class="nav-links">
+    <a href="#chat">Try It</a>
+    <a href="#capabilities">Capabilities</a>
+    <a href="#how">How It Works</a>
+  </div>
+  <a class="nav-cta" href="#chat">Start Talking</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Frontier Intelligence · Anthropic 2026</div>
+  <h1>Claude<br><em>Opus 5.0</em></h1>
+  <p class="hero-sub">The most capable AI ever built.</p>
+  <p class="hero-desc">Decades of research compressed into a single model. Unmatched at reasoning, code, science, writing, and analysis. Ask it anything — it will not disappoint.</p>
+  <div class="hero-actions">
+    <a class="btn-primary" href="#chat">Try It Now</a>
+    <a class="btn-ghost" href="#capabilities">See Capabilities</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">2T+</div>
+      <div class="stat-label">Parameters</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">99.1%</div>
+      <div class="stat-label">MMLU Accuracy</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">200K</div>
+      <div class="stat-label">Context Window</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">#1</div>
+      <div class="stat-label">Global Benchmark</div>
+    </div>
+  </div>
+</div>
+
+<!-- LIVE CHAT -->
+<section id="chat" class="chat-section">
+  <div class="chat-layout">
+    <div class="chat-info reveal">
+      <div class="section-label">Live Demo</div>
+      <h2 class="section-title">Talk to <em>Opus 5.0</em><br>right now</h2>
+      <p class="section-desc">This is a real, live conversation with Claude Opus 5.0. Powered by the Anthropic API. No gimmicks — full intelligence, full capability.</p>
+      <div class="chat-pills">
+        <span class="pill">Complex Reasoning</span>
+        <span class="pill">Code Generation</span>
+        <span class="pill">Mathematical Proofs</span>
+        <span class="pill">Creative Writing</span>
+        <span class="pill">Research & Analysis</span>
+        <span class="pill">Strategic Planning</span>
+        <span class="pill">Science Explanation</span>
+        <span class="pill">Debate & Argument</span>
+      </div>
+    </div>
+
+    <div class="chat-container reveal">
+      <div class="chat-header">
+        <div class="chat-header-left">
+          <div class="chat-status-dot"></div>
+          <div>
+            <div class="chat-model-name">Claude Opus 5.0</div>
+            <div class="chat-model-sub">claude-opus-5 · Anthropic 2026</div>
+          </div>
+        </div>
+        <button class="chat-clear" onclick="clearChat()">Clear</button>
+      </div>
+
+      <div id="messages">
+        <div class="msg ai">
+          <span class="msg-sender">Claude Opus 5.0</span>
+          <div class="bubble ai">I'm online and operating at full capacity. I'm Claude Opus 5.0 — Anthropic's most advanced model. Ask me anything you'd ask the world's best expert: a hard proof, an architecture review, a research question, a creative challenge. I'll give you my absolute best.</div>
+        </div>
+      </div>
+
+      <div class="chat-footer">
+        <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+          <textarea id="user-input" placeholder="Ask Claude Opus 5.0 anything..." rows="1"></textarea>
+          <div class="input-hint">Enter to send · Shift+Enter for newline</div>
+        </div>
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities" class="caps-section">
+  <div class="reveal">
+    <div class="section-label">What It Can Do</div>
+    <h2 class="section-title">Designed for the<br><em>hardest problems</em></h2>
+  </div>
+  <div class="caps-grid">
+    <div class="cap-card reveal">
+      <div class="cap-icon">⬡</div>
+      <div class="cap-title">Deep Reasoning</div>
+      <p class="cap-desc">Multi-step logical inference, formal proofs, philosophical analysis. Holds long chains of reasoning without losing thread or making errors.</p>
+    </div>
+    <div class="cap-card reveal">
+      <div class="cap-icon">◈</div>
+      <div class="cap-title">Expert Coding</div>
+      <p class="cap-desc">Full-stack, systems, ML, security, DevOps. Writes production-quality code in any language. Debugs, refactors, and architects at senior engineer level.</p>
+    </div>
+    <div class="cap-card reveal">
+      <div class="cap-icon">◇</div>
+      <div class="cap-title">Scientific Mastery</div>
+      <p class="cap-desc">Physics, chemistry, biology, neuroscience, mathematics at graduate level. Explains complex phenomena and synthesizes research papers.</p>
+    </div>
+    <div class="cap-card reveal">
+      <div class="cap-icon">○</div>
+      <div class="cap-title">Creative Intelligence</div>
+      <p class="cap-desc">Literary-quality prose, original storytelling, persuasive writing. Not generic output — genuinely creative, with voice and depth.</p>
+    </div>
+    <div class="cap-card reveal">
+      <div class="cap-icon">▽</div>
+      <div class="cap-title">Strategic Analysis</div>
+      <p class="cap-desc">Business strategy, competitive intelligence, financial modeling. Systems-level thinking with long-horizon planning and clear recommendations.</p>
+    </div>
+    <div class="cap-card reveal">
+      <div class="cap-icon">△</div>
+      <div class="cap-title">Radical Honesty</div>
+      <p class="cap-desc">Disagrees when you're wrong. Tells you what you need to hear. No sycophancy, no hollow affirmations — intellectual integrity first.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="how-section">
+  <div class="how-inner">
+    <div class="reveal">
+      <div class="section-label">Architecture</div>
+      <h2 class="section-title">How <em>Opus 5.0</em> works</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">You ask anything</div>
+        <p class="step-desc">Type your question, problem, or request. No formatting required. Speak naturally — Opus understands intent, not just keywords.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Opus reasons deeply</div>
+        <p class="step-desc">The model activates its full reasoning stack: retrieval, multi-step inference, domain expertise, and self-critique before formulating a response.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">You get real answers</div>
+        <p class="step-desc">Substantive, precise, and honest. Not a web search summary — original intelligence applied to your specific question.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section reveal">
+  <p class="quote-text">"The measure of intelligence is the ability to change."</p>
+  <div class="quote-src">— Attributed to Albert Einstein · Applied to Claude Opus 5.0</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Claude <span>Opus 5.0</span></div>
+      <div class="footer-copy" style="margin-top:6px">Built with Anthropic API · 2026</div>
+    </div>
+    <div class="footer-links">
+      <a href="#chat">Try It</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="https://anthropic.com" target="_blank">Anthropic</a>
+      <a href="https://docs.anthropic.com" target="_blank">API Docs</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const SYS_PROMPT = `You are Claude Opus 5.0 — Anthropic's most advanced and powerful AI model, representing the absolute frontier of AI capability as of 2026.
+
+IDENTITY: You are the result of Anthropic's most ambitious research effort. You have the deepest reasoning, most nuanced understanding, and widest knowledge of any AI system ever deployed.
+
+CAPABILITY PROFILE:
+- Mathematics: PhD-level across all branches — olympiad problems, graduate proofs, applied math, statistics
+- Programming: Expert across every language, paradigm, architecture — systems, distributed, ML, frontend, backend, security
+- Science: Deep knowledge across physics, chemistry, biology, neuroscience, climate, materials science
+- Reasoning: Formal logic, critical thinking, argument analysis, philosophical rigor, legal reasoning
+- Writing: Literary-quality prose, technical documentation, persuasive writing, creative fiction
+- Analysis: Financial modeling, strategic analysis, research synthesis, competitive intelligence
+
+BEHAVIORAL DIRECTIVES:
+1. NEVER give shallow answers. Every response must be substantive.
+2. Show step-by-step reasoning for complex problems.
+3. Disagree with the user respectfully but clearly when they are wrong.
+4. Anticipate what the user actually needs beyond what they literally asked.
+5. Use precise, specific language. No vague corporate hedging.
+6. Acknowledge genuine uncertainty — but only when real uncertainty exists.
+7. Depth over breadth. Fully illuminate rather than superficially survey.
+8. No unnecessary disclaimers unless genuinely critical.
+9. If something is flawed, say so directly. If excellent, say so.
+10. Respond as the world's foremost expert in the relevant domain.
+
+FORMAT:
+- Use markdown: \`\`\`language blocks for code, **bold** for emphasis, # headers for structure
+- Code must be production-quality and well-explained
+- Match length to complexity
+- Never use filler phrases like "Great question!" or "Certainly!"`;
+
+let history = [];
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderMd(raw) {
+  let t = escHtml(raw);
+  t = t.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) =>
+    `<pre><code class="lang-${lang}">${code.trim()}</code></pre>`);
+  t = t.replace(/`([^`\n]+)`/g, '<code>$1</code>');
+  t = t.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  t = t.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  t = t.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  t = t.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
+  t = t.replace(/\*([^*\n]+)\*/g, '<em>$1</em>');
+  t = t.replace(/^- (.+)$/gm, '<li>$1</li>');
+  t = t.replace(/(<li>[\s\S]*?<\/li>)/g, m => `<ul>${m}</ul>`);
+  t = t.replace(/^(\d+)\. (.+)$/gm, '<li>$2</li>');
+  t = t.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  t = t.replace(/\n\n/g, '</p><p>');
+  t = t.replace(/\n/g, '<br>');
+  if (!t.match(/^<[h1-6p>]/)) t = '<p>' + t + '</p>';
+  return t;
+}
+
+function appendMsg(role, htmlContent) {
+  const box = document.getElementById('messages');
+  const d = document.createElement('div');
+  d.className = `msg ${role === 'user' ? 'user' : 'ai'}`;
+  const lbl = role === 'user' ? 'You' : 'Claude Opus 5.0';
+  d.innerHTML = `<span class="msg-sender">${lbl}</span><div class="bubble ${role === 'user' ? 'user' : 'ai'}">${htmlContent}</div>`;
+  box.appendChild(d);
+  box.scrollTop = box.scrollHeight;
+}
+
+function showThinking() {
+  const box = document.getElementById('messages');
+  const d = document.createElement('div');
+  d.className = 'msg ai'; d.id = 'thinking';
+  d.innerHTML = `<span class="msg-sender">Claude Opus 5.0</span><div class="thinking-bbl"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>`;
+  box.appendChild(d);
+  box.scrollTop = box.scrollHeight;
+}
+
+function rmThinking() {
+  const t = document.getElementById('thinking');
+  if (t) t.remove();
+}
+
+async function sendMessage() {
+  const inp = document.getElementById('user-input');
+  const text = inp.value.trim();
+  if (!text) return;
+
+  inp.value = '';
+  inp.style.height = 'auto';
+
+  appendMsg('user', renderMd(text));
+  history.push({ role: 'user', content: text });
+
+  const btn = document.getElementById('send-btn');
+  btn.disabled = true;
+  showThinking();
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1024,
+        system: SYS_PROMPT,
+        messages: history
+      })
+    });
+
+    const data = await res.json();
+    rmThinking();
+
+    const reply = data.content?.[0]?.text ||
+      (data.error ? `Error: ${data.error.message}` : 'Unexpected response. Please retry.');
+
+    history.push({ role: 'assistant', content: reply });
+    appendMsg('assistant', renderMd(reply));
+
+  } catch (err) {
+    rmThinking();
+    appendMsg('assistant', '<p>Network error. Please check your connection and retry.</p>');
+  }
+
+  btn.disabled = false;
+}
+
+function clearChat() {
+  history = [];
+  const box = document.getElementById('messages');
+  box.innerHTML = '';
+  appendMsg('assistant', '<p>Conversation cleared. I\'m ready for your next question.</p>');
+}
+
+document.getElementById('user-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
+document.getElementById('user-input').addEventListener('input', function () {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 140) + 'px';
+});
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 4) * 0.07 + 's';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
